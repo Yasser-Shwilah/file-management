@@ -32,9 +32,11 @@ class AdminService
         return  $this->returnData('Data', $data);
     }
 
-    public function getAllGroupInSystem(){
-        $data =   $this->repo->getAllGroupInSystem();
-        return  $this->returnData('Data', $data);
+    public function getAllGroupInSystem()
+    {
+        $data = $this->repo->getAllGroupInSystem();
+
+        return $this->returnData('Data', $data);
     }
 
     public function changeFileNumber(FileNumberRequest $request){
