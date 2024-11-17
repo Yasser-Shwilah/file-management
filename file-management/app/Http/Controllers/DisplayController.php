@@ -24,7 +24,7 @@ class DisplayController extends Controller
         $this->service = $displayService;
     }
 
-    public function retrieveMyFiles() 
+    public function getMyFile()
     {
         try {
             return $this->service->getMyFile();
@@ -33,9 +33,9 @@ class DisplayController extends Controller
         }
     }
 
-    public function retrieveFileState(deleteFileRequest $request) 
+    public function getStateFile(deleteFileRequest $request)
     {
-        try { 
+        try {
             if ($this->service->checkStateFile($request)) {
                 return $this->returnData('Data', $this->service->getUserCheck_In($request));
             }
@@ -45,7 +45,8 @@ class DisplayController extends Controller
         }
     }
 
-    public function retrieveMyGroups()
+
+    public function getMyGroup()
     {
         try {
             return $this->service->getMyGroup();
@@ -54,16 +55,16 @@ class DisplayController extends Controller
         }
     }
 
-    public function retrieveGroupFiles(DeleteGroupRequest $request) 
+    public function getGroupFile(DeleteGroupRequest $request)
     {
         try {
-            return $this->service->getGroupFile($request);
+            return  $this->service->getGroupFile($request);
         } catch (\Exception $exp) {
             return $this->returnError(100, 'try again');
         }
     }
 
-    public function retrieveAllUsersInSystem() 
+    public function getAllUserInSystem()
     {
         try {
             return $this->service->getAllUserInSystem();
@@ -72,7 +73,7 @@ class DisplayController extends Controller
         }
     }
 
-    public function retrieveAllUsersInGroup(DeleteGroupRequest $allUserInGroupRequest) 
+    public function getAllUserInGroup(DeleteGroupRequest $allUserInGroupRequest)
     {
         try {
             return $this->service->getAllUserInGroup($allUserInGroupRequest);
@@ -81,7 +82,7 @@ class DisplayController extends Controller
         }
     }
 
-    public function retrieveAllCheckedInFilesForUser(DeleteGroupRequest $request) 
+    public function getAllFileCheck_InGroupForUser(DeleteGroupRequest $request)
     {
         try {
             return $this->service->getAllFileCheck_InGroupForUser($request);
