@@ -11,9 +11,9 @@ class HistoryRepository
 {
     private $log;
 
-    public function __construct(Log $log)
+     public function __construct(Log $log)
     {
-        return $this->log = $log;
+        $this->log = $log;
     }
 
 
