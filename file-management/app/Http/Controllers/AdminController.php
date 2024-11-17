@@ -19,7 +19,7 @@ class AdminController extends Controller
         $this->service = $adminService;
     }
 
-    public function retrieveAllFilesInSystem() 
+    public function getAllFileInSystem()
     {
         try {
             return $this->service->getAllFileInSystem();
@@ -28,28 +28,33 @@ class AdminController extends Controller
         }
     }
 
-    public function retrieveAllFilesInGroup(DeleteGroupRequest $request) 
+    public function getAllFileInGroup(DeleteGroupRequest $request)
     {
         try {
             return $this->service->getAllFileInGroup($request);
+
         } catch (\Exception $exp) {
             return $this->returnError(100, 'try again');
         }
     }
 
-    public function retrieveAllGroupsInSystem() 
+    public function getAllGroupInSystem()
     {
         try {
             return $this->service->getAllGroupInSystem();
+
+
         } catch (\Exception $exp) {
             return $this->returnError(100, 'try again');
         }
     }
 
-    public function updateFileNumber(FileNumberRequest $request) 
+    public function changeFileNumber(FileNumberRequest $request)
     {
+
         try {
             return $this->service->changeFileNumber($request);
+
         } catch (\Exception $exp) {
             return $this->returnError(100, 'try again');
         }
